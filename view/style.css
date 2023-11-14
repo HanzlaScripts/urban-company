@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#designbdr{
+    width: 500px;
+}
+#team{
+    color: rgb(110, 66, 229);
+}
+#greter {
+    position: relative;
+    top: 4px;
+    /* left: 20px; */
+    color: rgb(110, 66, 229);
+    animation: linear infinite;
+    animation-name: run;
+    animation-duration: 3s;
+  }
+  #img{
+    background-image: url(1692026884244-e22080.jpeg);
+    height: 250px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+  }
+  #addbtn{
+    border: 1px solid rgb(110, 66, 229);
+    color: rgb(110, 66, 229);
+  }
+  #dotbdr{
+    border: dashed #dcd4d4 1px;
+    width: 90%;
+    /* margin: auto; */
+  }
+  ul > li{
+    list-style: inside;
+  }
+  #team a{
+    text-decoration: none;
+  }
+  #secend{
+    width: 90%;
+    border: 3px solid #f0f0f0;
+  }
+  @keyframes run {
+    0% {
+      left: 2%;
+    }
+    50% {
+      left: 4%;
+    }
+    100% {
+      left: 2%;    
+    }
+  }

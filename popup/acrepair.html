@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>responsive popup</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .w-parent {
+      display: flex;
+      justify-content: center;
+    }
+
+    #bdr-lin {
+      height: 320px;
+      width:500px;
+      margin-top: 100px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.5) 0px 8px 16px -8px;
+    }
+
+    #form {
+      height: 250px;
+      width: 90%;
+      margin: auto;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      background-image: url(ac-services.jpg);
+      /* background-image: url(ac-services.jpg); */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    #disc {
+      display: flex;
+      justify-content: start;
+      margin-left: 18px;
+    }
+
+    #disc1 {
+      display: flex;
+      /* margin-left: 13px; */
+    }
+
+    .popup {
+      display: flex;
+      visibility: hidden;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .popup .inner {
+      width: 460px;
+      background: #eee;
+      padding: 1rem;
+      position: absolute;
+      top: 282px;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.7s ease-in-out;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+    }
+
+    .popup .inner button {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: -50px;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 50%;
+      outline: none;
+      border: none;
+    }
+
+    #pop-btns {
+      display: flex;
+    }
+
+    #btn1,
+    #btn2 {
+      height: 45px;
+      width: 150px;
+      background-color: red;
+      outline: none;
+      border: none;
+      color: #fff;
+      letter-spacing: 0.07rem;
+      cursor: pointer;
+      position: absolute;
+      top: 80%;
+      left: 8%;
+      border-radius: 0%;
+    }
+
+    #btn2 {
+      left: 57%;
+    }
+
+    #btn,
+    #btnn {
+      width: 195px;
+      height: 45px;
+      outline: none;
+      border: none;
+      padding: 0.5rem 0.5rem;
+      background: #343434;
+      color: #fff;
+      letter-spacing: 0.2rem;
+      position: relative;
+      top: 40px;
+    }
+
+    #btnn {
+      width: 160px;
+      /* left: 180px; */
+    }
+
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    #pop-no {
+      position: relative;
+      top: 2px;
+      left: 25px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+    @media screen and (max-width: 528px) {
+      .popup .inner{
+        width: 87%;
+      }
+    }
+    @media screen and (max-width: 528px) {
+      #pop-no{
+        top: 0px;
+        left: 10px;
+      }
+    }
+    @media screen and (max-width: 360px) {
+        #pop-no {
+          top: 2px;
+          font-size: 17px;
+        }
+      }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid"  data-aos="zoom-in-up" data-aos-duration="1500"> 
+    <div class="d-flex justify-content-center" id="w-parent">
+      <div id="bdr-lin">
+
+
+        <div class="row">
+          <div id="form" class="mt-2">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="pt-2" id="disc">
+              <p class="fw-bold m-0">
+                Name:
+              </p>
+              <p class="m-0 ms-2">
+                Ali Raza
+              </p>
+            </div>
+            <div id="disc1" class="ms-3 pb-1">
+              <p class="fw-bold m-0">
+                Catagory:
+              </p>
+              <p class="m-0 ms-2">
+                AC Service
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <button class="mb-2" id="btn">Call on whatsapp</button>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" >
+            <button class="text-end" id="btnn">Call on Phone</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="popup" id="popup">
+              <div class="inner" id="inner">
+                <p class="fw-bold fs-4 text-center">
+                  Contact Us for giving a time
+                </p>
+                <div id="no1" class="d-flex">
+                  <p class="fw-bold fs-5 ms-2" id="whsapno">
+                    whatsapp No :
+                  </p>
+                  <p class="m-0" id="pop-no">
+                    +92307*****36
+                  </p>
+                </div>
+                <div id="discrip">
+                  <p class="fw-bold fs-5 ms-2">
+                    Product Discription:
+                  </p>
+                  <p class="m-2">
+                    House AC repair involves diagnosing and fixing issues with air conditioning systems, including
+                    problems with
+                    cooling, airflow, or mechanical components, ensuring optimal functionality and a comfortable
+                    indoor
+                    climate.
+                  </p>
+                </div>
+                <button id="close">x</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  <script>
+    const btn = document.getElementById("btn");
+    const btnn = document.getElementById("btnn");
+    const popup = document.getElementById("popup");
+    const closes = document.getElementById("close");
+    const inner = document.getElementById("inner");
+    btn.addEventListener("click", () => {
+      popup.style.visibility = "visible";
+      inner.classList.add("show");
+    });
+    btnn.addEventListener("click", () => {
+      popup.style.visibility = "visible";
+      inner.classList.add("show");
+    });
+
+    closes.addEventListener("click", () => {
+      popup.style.visibility = "hidden";
+      inner.classList.remove("show");
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>
